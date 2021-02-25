@@ -1,0 +1,43 @@
+﻿@model ModelViewController.Models.ModelsClass.ClassInsertViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ClassName" class="control-label"></label>
+                <input asp-for="ClassName" class="form-control" />
+                <span asp-validation-for="ClassName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassShift" class="control-label"></label>
+
+                <select asp-for="ClassShift" id="ClassShift" class="form-control">
+                    @{
+                        string[] shifts = Enum.GetNames(typeof(Metadata.Enums.Shift));
+                    }
+
+                    @for (int i = 0; i < shifts.Length; i++)
+                    {
+                        <option value="@i">@shifts[i]</option>
+                    }
+
+                </select>
+                <span asp-validation-for="ClassShift" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,66 @@
+﻿@model ModelViewController.Models.ModelsAdministrator.AdminInsertViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AdmName" class="control-label"></label>
+                <input asp-for="AdmName" class="form-control" />
+                <span asp-validation-for="AdmName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cpf" class="control-label"></label>
+                <input asp-for="Cpf" class="form-control" />
+                <span asp-validation-for="Cpf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BirthDate" class="control-label"></label>
+                <input asp-for="BirthDate" class="form-control" />
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Passcode" class="control-label"></label>
+                <input asp-for="Passcode" class="form-control" />
+                <span asp-validation-for="Passcode" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PictureUpload" class="control-label"></label>
+                <input name="PictureUpload" id="PictureUpload" type="file" class="form-control" />
+                <span asp-validation-for="PictureUpload" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+
+            @if (ViewBag.Erros != null)
+            {
+                <div class="form-group">
+                    <span class="has-error">@ViewBag.Errors</span>
+                </div>
+            }
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

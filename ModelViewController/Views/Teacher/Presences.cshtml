@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ModelViewController.Models.ModelsPresence.PresenceViewModel>
+
+@{
+    ViewData["Title"] = "Presences";
+}
+
+<h1>Presença</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Presença)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Presença)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

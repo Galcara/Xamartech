@@ -1,0 +1,191 @@
+﻿@{ Layout = ""; }
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html>
+<html dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <title>Monster admin Template - The Ultimate Multipurpose admin template</title>
+    <link rel="canonical" href="https://www.wrappixel.com/templates/monsteradmin/" />
+    <!-- Custom CSS -->
+    <link href="../../dist/css/style.min.css" rel="stylesheet">
+    <link href="../../dist/css/style2.min.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Preloader - style you can find in spinners.css -->
+        <!-- ============================================================== -->
+        <div class="preloader">
+            <div class="lds-ripple">
+                <div class="lds-pos"></div>
+                <div class="lds-pos"></div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- Preloader - style you can find in spinners.css -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Login box.scss -->
+        <!-- ============================================================== -->
+
+        <div class="auth-wrapper d-flex-2 no-block justify-content-center align-items-center" style="background:url(../assets/images/background/Home.jpg) no-repeat center center; background-size: cover;">
+            <div class="">
+                <div id="loginform">
+                    <div class="form-group text-center mt-4">
+                        <div class="col-xs-12">
+
+                            <button type="button" onclick="document.getElementById('id02').style.display='block'" class="mt-2 waves-effect waves-dark btn btn-primary btn-md btn-rounded" id="slide-toast">Professor</button>
+                        </div>
+                        <br>
+                        <div class="col-xs-12">
+                            <button type="button" onclick="document.getElementById('id01').style.display='block'" class="mt-2 waves-effect waves-dark btn btn-primary btn-md btn-rounded" id="slide-toast">Aluno</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="id01" class="modal">
+
+            <form class="modal-content animate form-horizontal mt-3 form-material" action="/Home/AutenticateStudent" method="post">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('id01').style.display='none' " class="close" title="Fechar">&times;</span>
+                    <img src="~/assets/images/background/img-student.png" alt="Avatar" class="avatar">
+                </div>
+
+                <div class="form-group mb-3">
+                    <div class="">
+                        <input class="form-control" name="Register" type="text" required="" placeholder="Login" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Login'" />''    
+                    </div>
+                </div>
+                <div class="form-group mb-4">
+                    <div class="">
+                        <input class="form-control" name="Passcode" type="password" required="" placeholder="Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Senha'">
+                    </div>
+                </div>
+
+                <div class="form-group text-center mt-4">
+                    <div class="col-xs-12">
+                        <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Entrar</button>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+        <div id="id02" class="modal">
+
+            <form class="modal-content animate form-horizontal mt-3 form-material" action="/Home/AutenticateTeacher" method="post">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('id02').style.display='none' " class="close" title="Fechar">&times;</span>
+                    <img src="~/assets/images/background/img-teacher.png" alt="Avatar" class="avatar">
+                </div>
+
+                <div class="form-group mb-3">
+                    <div class="">
+                        <input class="form-control" name="Email" type="text" required="" placeholder="Login" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Login'" />
+                    </div>
+                </div>
+                <div class="form-group mb-4">
+                    <div class="">
+                        <input class="form-control" name="Passcode" type="password" required="" placeholder="Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Senha'">
+                    </div>
+                </div>
+
+                <div class="form-group text-center mt-4">
+                    <div class="col-xs-12">
+                        <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Entrar</button>
+                    </div>
+                </div>
+
+                @if (ViewBag.Errors != null)
+                {
+                    <div class="form-group text-center mt-4">
+                        <div class="">
+                            <span class="dz-error-message">@ViewBag.Errors</span>
+                        </div>
+                    </div>
+                }
+
+
+            </form>
+        </div>
+
+
+        <!-- ============================================================== -->
+        <!-- Login box.scss -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper scss in scafholding.scss -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper scss in scafholding.scss -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right Sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right Sidebar -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- All Required js -->
+    <!-- ============================================================== -->
+    <script src=~/assets/libs/jquery/dist/jquery.min.js></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src=~/assets/libs/popper.js/dist/umd/popper.min.js></script>
+    <script src=~/assets/libs/bootstrap/dist/js/bootstrap.min.js></script>
+    <!-- ============================================================== -->
+    <!-- CSS Here -->
+
+    <link href="~/assets/extra-libs/toastr/dist/build/toastr.min.css" rel="stylesheet">
+
+
+    <!-- Javascript Here -->
+    <!-- This page plugin js -->
+    <!-- ============================================================== -->
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+        var modal2 = document.getElementById('id02');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+
+            }
+
+        }
+        $('[data-toggle="tooltip"]').tooltip();
+        $(".preloader").fadeOut();
+        // ==============================================================
+        // Login and Recover Password
+        // ==============================================================
+        $('#btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light').on("click", function () {
+            $("#loginform").slideUp();
+
+        });</script>
+</body>
+
+</html>

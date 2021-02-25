@@ -1,0 +1,142 @@
+﻿@using Metadata
+@{
+    ViewData["Title"] = "GenerateSchedule";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group">
+                <label class="control-label">Data de Início:</label>
+                <input type="date" name="schoolBegin" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Gerar Ementa" class="btn btn-primary" />
+            </div>
+            @if (ViewBag.Errors != null)
+            {
+                <div class="form-group">
+                    <span class="error">@ViewBag.Errors</span>
+                </div>
+            }
+            else if (ViewBag.Lessons != null)
+            {
+                List<Lesson> lessons = null;
+
+                foreach (Class classes in ViewBag.Classes)
+                {
+
+                    lessons = ViewBag.Lessons;
+
+                    lessons = lessons.Where(c => c.ClassID == classes.ID).ToList();
+
+                    List<Subject> subjects = ViewBag.Subjects;
+                    List<Teacher> teachers = ViewBag.Teachers;
+
+
+                    foreach (Lesson x in lessons)
+                    {
+                        x.Subject = new Subject();
+                        x.Subject.SubjectName = subjects.FirstOrDefault(w => w.ID == x.SubjectID).SubjectName;
+
+                        x.Teacher = new Teacher();
+                        x.Teacher.TeacherName = teachers.FirstOrDefault(w => w.ID == x.TeacherID).TeacherName;
+                    }
+                    <div class="form-group">
+                        <table class="table table-dark">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class=".center">@classes.ClassName.ToString()</th>
+                                    <th scope="col" class=".center">Segunda</th>
+                                    <th scope="col" class=".center">Terça</th>
+                                    <th scope="col" class=".center">Quarta</th>
+                                    <th scope="col" class=".center">Quinta</th>
+                                    <th scope="col" class=".center">Sexta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+
+                                <tr>
+                                    <th scope="row">Aula 1</th>
+
+                                    @for (int s = 0; s < lessons.Count;)
+                                    {
+                                        string content = lessons[s].Subject.SubjectName + "\r\n(" + lessons[s].Teacher.TeacherName + ")";
+
+                                        <td>@content</td>
+
+                                        @*<td>@lessons[s].Subject.SubjectName </td>*@
+                                        s = s + 5;
+                                    }
+
+                                </tr>
+                                <tr>
+
+                                    <th scope="row">Aula 2</th>
+                                    @for (int s = 1; s < lessons.Count;)
+                                    {
+                                        string content = lessons[s].Subject.SubjectName + "\r\n(" + lessons[s].Teacher.TeacherName + ")";
+
+                                        <td>@content</td>
+
+                                        @*<td>@lessons[s].Subject.SubjectName </td>*@
+                                        s = s + 5;
+                                    }
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Aula 3</th>
+                                    @for (int s = 2; s < lessons.Count;)
+                                    {
+                                        string content = lessons[s].Subject.SubjectName + "\r\n(" + lessons[s].Teacher.TeacherName + ")";
+
+                                        <td>@content</td>
+
+                                        @*<td>@lessons[s].Subject.SubjectName </td>*@
+
+                                        s = s + 5;
+                                    }
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Aula 4</th>
+                                    @for (int s = 3; s < lessons.Count;)
+                                    {
+                                        string content = lessons[s].Subject.SubjectName + "\r\n(" + lessons[s].Teacher.TeacherName + ")";
+
+                                        <td>@content</td>
+
+                                        @*<td>@lessons[s].Subject.SubjectName </td>*@
+
+                                        s = s + 5;
+                                    }
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Aula 5</th>
+                                    @for (int s = 4; s < lessons.Count;)
+                                    {
+                                        string content = lessons[s].Subject.SubjectName + "\r\n(" + lessons[s].Teacher.TeacherName + ")";
+
+                                        <td>@content</td>
+
+                                        @*<td>@lessons[s].Subject.SubjectName</td>*@
+                                        s = s + 5;
+                                    }
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            }
+        </form>
+
+        <form action="/Administrator/CreateLessons" method="post">
+            <div class="form-group">
+                <input type="submit" value="Salvar Ementa" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

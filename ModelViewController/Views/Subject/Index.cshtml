@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ModelViewController.Models.ModelsSubject.SubjectQueryViewModel>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubjectName)
+            </th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model == null)
+        {
+
+        }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubjectName)
+                </td>
+                
+            </tr>
+        }
+    </tbody>
+</table>

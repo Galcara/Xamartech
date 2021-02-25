@@ -1,0 +1,64 @@
+﻿@model ModelViewController.Models.ModelsStudent.StudentInsertViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<script src="~/lib/jquery-mask-plugin/src/jquery.mask.js" type="text/javascript" asp-append-version="true"></script>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StudentName" class="control-label"></label>
+                <input asp-for="StudentName" class="form-control" />
+                <span asp-validation-for="StudentName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cpf" id="txtCPF" class="control-label"></label>
+                <input asp-for="Cpf" class="form-control";">
+                <span asp-validation-for="Cpf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BirthDate" class="control-label"></label>
+                <input asp-for="BirthDate" class="form-control" />
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" onkeypress="$(this).mask('(00) 0000-00009')">
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PictureUpload" class="control-label"></label>
+                <input name="PictureUpload" id="PictureUpload" type="file" class="form-control" />
+                <span asp-validation-for="PictureUpload" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label id="SubjectsLabel" name="SubjectsLabel" class="control-label">Turma</label>
+                <select class="form-control" id="my_multi_select1" asp-for="@Model.ClassID" asp-items="(List<SelectListItem>)ViewBag.Class"></select>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<script>
+
+</script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}

@@ -1,0 +1,69 @@
+﻿{
+   "ContextClassName": "BiometricPresenceDB",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": null,
+   "ProjectRootNamespace": "DataAccessLayer",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[ADMINISTRATORS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CLASSES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CLASSES_LESSONS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CLASSES_STUDENT]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CLASSES_TEACHER]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[LESSONS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PRESENCES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[STUDENTS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SUBJECT_TEACHERS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SUBJECTS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TEACHERS]",
+         "ObjectType": 0
+      }
+   ],
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseNodaTime": false,
+   "UseSpatial": false
+}

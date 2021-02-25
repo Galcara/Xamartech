@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ModelViewController.Models.ModelsTeacher.TeacherQueryViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeacherName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cpf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+          
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model == null)
+        {
+
+        }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+
+                    @{
+                        string src = "~/Arquivos_Usuario/Teacher/" + item.ID + ".jpg";
+                        System.Text.StringBuilder builder = new System.Text.StringBuilder();
+                        string separator = "";
+                    }
+                    <div class="d-flex align-items-center">
+                        <img src="@Url.Content(src)" alt="avatar" class="rounded-circle" width="70">
+                        <div class="ml-2">
+                            <div class="user-meta-info">
+                                <h5 class="user-name mb-0" data-name="Emma Adams">@Html.DisplayFor(m => item.TeacherName)</h5>
+
+
+                                @foreach (var x in item.Subjects)
+                                {
+                                    builder.Append(separator + x.SubjectName);
+                                    separator = ",";
+                                }
+
+                                <span class="user-work text-muted" data-occupation="Web Developer">@builder.ToString()</span>
+
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cpf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                
+            </tr>
+        }
+    </tbody>
+</table>

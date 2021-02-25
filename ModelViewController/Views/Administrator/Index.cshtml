@@ -1,0 +1,90 @@
+﻿@model IEnumerable<ModelViewController.Models.ModelsAdministrator.AdminQueryViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@if (ViewBag.Erros != null)
+{
+    <p class="has-error">@ViewBag.Errors</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AdmName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cpf)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BirthDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+               
+             
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model == null)
+            {
+
+            }
+            else
+            {
+                @foreach (var item in Model)
+                {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+
+                    @{
+                        string src = "~/Arquivos_Usuario/Admin/" + item.ID + ".jpg";
+                        System.Text.StringBuilder builder = new System.Text.StringBuilder();
+
+                    }
+                    <div class="d-flex align-items-center">
+                        <img src="@Url.Content(src)" alt="avatar" class="rounded-circle" width="70">
+                        <div class="ml-2">
+                            <div class="user-meta-info">
+                                <h5 class="user-name mb-0" data-name="Emma Adams">@Html.DisplayFor(m => item.AdmName)</h5>
+
+
+                                <span class="user-work text-muted" data-occupation="Web Developer">@builder.ToString()</span>
+
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cpf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BirthDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+
+            </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+}

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarTeachAPP.Page1">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button x:Name="Presence" 
+                Text="Autenticar com Digital"
+                Font="Large"
+                BorderWidth="1"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Clicked="BntFPButtonClicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

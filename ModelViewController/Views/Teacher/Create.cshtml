@@ -1,0 +1,65 @@
+﻿@model ModelViewController.Models.ModelsTeacher.TeacherInsertViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TeacherName" class="control-label"></label>
+                <input asp-for="TeacherName" class="form-control" />
+                <span asp-validation-for="TeacherName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cpf" class="control-label"></label>
+                <input asp-for="Cpf" class="form-control cpf-mask" placeholder="Ex.: 000.000.000-00">
+                <span asp-validation-for="Cpf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BirthDate" class="control-label"></label>
+                <input asp-for="BirthDate" class="form-control" />
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control phone-ddd-mask" placeholder="Ex.: (00) 0000-0000">
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PictureUpload" class="control-label"></label>
+                <input name="PictureUpload" id="PictureUpload" type="file" class="form-control" />
+                <span asp-validation-for="PictureUpload" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label id="SubjectsLabel" name="SubjectsLabel" class="control-label">Matérias</label>
+                <select multiple="multiple" class="form-control" id="my_multi_select1" asp-for="@Model.Subjects" asp-items="(List<SelectListItem>)ViewBag.Subjects"></select>
+            </div>
+
+            @if (ViewBag.Errors != null)
+            {
+                <div class="form-group">
+                    <span>@ViewBag.Errors</span>
+                </div>
+            }
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
